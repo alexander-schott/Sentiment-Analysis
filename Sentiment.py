@@ -42,8 +42,22 @@ nv = 0
 pa = 0
 na = 0
 
+
 print("Reading data...")
 eb = pd.read_csv('emobank.csv', index_col=0)
+nrc = pd.read_csv('NRC-VAD-Lexicon.txt', index_col=False, skiprows=[0], delim_whitespace=True)
+for index, row in nrc.iterrows():
+    """
+    word = row["Word"]
+    v = float(row["Valence"])
+    a = float(row["Arousal"])
+    """
+    print(row)
+    print(index)
+    word = index[0]
+    v = float(index[1])
+    a = float(index[2])
+    print(word, v, a)
 for index, row in eb.iterrows():
     v = float(row["V"])
     a = float(row["A"])
